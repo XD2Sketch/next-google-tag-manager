@@ -2,7 +2,7 @@
 
 import React, { useEffect } from 'react';
 import Script from "next/script";
-import { GTM_ID, pageview } from '../lib/gtm';
+import { GTM_ID, pageview } from '../utils/gtm';
 import { usePathname, useSearchParams } from 'next/navigation';
 
 const GoogleTagManager = () => {
