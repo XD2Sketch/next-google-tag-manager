@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+'use client';
 
+import React, { useEffect } from 'react';
 import Script from "next/script";
 import { GTM_ID, pageview } from '../lib/gtm';
 import { usePathname, useSearchParams } from 'next/navigation';
