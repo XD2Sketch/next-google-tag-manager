@@ -1,1 +1,3 @@
-export { default as GoogleTagManager } from "./components/GoogleTagManager";
+import GoogleTagManager from "./components/GoogleTagManager";
+
+export default GoogleTagManager;
