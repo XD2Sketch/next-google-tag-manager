@@ -1,5 +1,5 @@
 {
-  "name": "next-google-tag-manager",
+  "name": "@magicul/next-google-tag-manager",
   "description": "A lightweight Next 13 compatible Google Tag Manager package.",
   "version": "0.1.0",
   "main": "lib/index.js",

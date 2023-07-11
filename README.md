@@ -13,13 +13,13 @@ A lightweight Next 13 library to easily implement Google Tag Manager in your pro
 Install this package with `npm`
 
 ```bash
-npm i next-google-tag-manager
+npm i @magicul/next-google-tag-manager
 ```
 
 Or with `yarn`
 
 ```bash
-yarn add next-google-tag-manager
+yarn add @magicul/next-google-tag-manager
 ```
 
 ## Usage
