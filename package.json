@@ -2,8 +2,8 @@
   "name": "@magicul/next-google-tag-manager",
   "description": "A lightweight Next 13 compatible Google Tag Manager package.",
   "version": "0.1.3",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "homepage": "https://github.com/XD2Sketch/next-google-tag-manager#readme",
   "repository": {
     "type": "git",
