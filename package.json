@@ -25,7 +25,8 @@
     "typescript"
   ],
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "prepublishOnly": "yarn build"
   },
   "author": "Magicul",
   "license": "MIT",
