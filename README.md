@@ -6,7 +6,9 @@
 ![npm](https://img.shields.io/npm/v/@magicul/next-google-tag-manager)
 ![GitHub Repo stars](https://img.shields.io/github/stars/XD2Sketch/next-google-tag-manager?style=social)
 
-A lightweight Next 13 library to easily implement Google Tag Manager in your projects. This package forwards all of the page changes to Google Tag Manager so you can easily track your users.
+A lightweight Next 13 library to easily implement Google Tag Manager
+in your projects. This package forwards all of the page changes to
+Google Tag Manager so you can easily track your users.
 
 ## Installation
 
@@ -24,48 +26,36 @@ yarn add @magicul/next-google-tag-manager
 
 ## Usage
 
-### Setting up the environment variables
+### Using the GoogleTagManager component
 
-Create a `.env.local` file in the root of your project and add the following variables:
-
-```env
-NEXT_PUBLIC_GTM_ID=<YOUR-GTM-ID>
-```
-
-### Importing the component
-
-To initialize Google Tag Manager, add `<GoogleTagManager />` to `app/layout.tsx` like this:
+To initialize Google Tag Manager, add `<GoogleTagManager />`
+to `app/layout.tsx` like this:
 
 ```tsx
 import GoogleTagManager from '@magicul/next-google-tag-manager';
 
 const RootLayout = ({ children }) => (
   <html lang="en">
-    <body>
-      <GoogleTagManager />
-      {children}
-    </body>
+  <body>
+  <GoogleTagManager id="GTM-XXXXX" />
+  {children}
+  </body>
   </html>
 );
 ```
 
-Note: This package utilizes [next/script](https://nextjs.org/docs/basic-features/script), which means you **can't** place it inside a `next/head`.
+Note: This package
+utilizes [next/script](https://nextjs.org/docs/basic-features/script),
+which means you **can't** place it inside a `next/head`.
 
-### Using your own tagging server
+### Configuring
 
-For utilizing server-side tagging through your own tagging server, you can do so by adding the `NEXT_PUBLIC_GTM_SERVER` environment variable to the `.env.local` file, this value should be the domain, any subdomains and the top level domain of your tagging server, for example:
+To customize the way you load Google Tag Manager, you can pass the
+following props to the component:
 
-If the URL of your tagging server is `https://tagging.example.com`, you would add the following to your `.env.local` file:
-
-```env
-NEXT_PUBLIC_GTM_SERVER=tagging.example.com
-```
-
-### Configuring your own container
-
-Next to setting up your own tagging server, you can also configure next-google-tag-manager to use your custom container configuration. These are the values that you can set in your `.env.local` file:
-
-| Value                  | Description                                       |
-|------------------------|---------------------------------------------------|
-| `NEXT_PUBLIC_GTM_AUTH` | ?                                                 |
-| `NEXT_PUBLIC_GTM_ENV`  | The preview environment which the GTM belongs to. |
+| Prop name   | Type   | Default value            | Description                                                                                                                                                                                                                                                       |
+|-------------|--------|--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| id          | string | -                        | The ID of your Google Tag Manager container                                                                                                                                                                                                                       |
+| server      | string | www.googletagmanager.com | The tagging server that is used, you can configure your own server here or use the default Google Tag Manager server by default. This is used for server side tagging. Please only put the domain, subdomain and top level domain here to make it work correctly. |
+| auth        | string | -                        | Authentication string for the container configuration.                                                                                                                                                                                                            |
+| environment | string | -                        | The environment that is used, see [Environments - Tag Manager Help](https://support.google.com/tagmanager/answer/6311518?hl=en) for more information                                                                                                              |

@@ -11,40 +11,39 @@ interface ICustomWindow extends Window {
 
 declare let window: ICustomWindow;
 
-export const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
+export type GoogleTagManagerArgs = {
+  id: string;
+  server?: string;
+  auth?: string;
+  environment?: string;
+}
 
-export const GTM_SERVER = process.env.NEXT_PUBLIC_GTM_SERVER || 'www.googletagmanager.com';
+export const getIFrameURL = ({ id, server, environment, auth }: GoogleTagManagerArgs) => {
+  const BASE_URL = `https://${server}/ns.html`;
 
-const GTM_AUTH = process.env.NEXT_PUBLIC_GTM_AUTH;
-
-const GTM_ENV = process.env.NEXT_PUBLIC_GTM_ENV;
-
-export const getIFrameURL = () => {
-  const BASE_URL = `https://${GTM_SERVER}/ns.html`;
-
-  if (!GTM_ID) {
+  if (!id) {
     console.warn('next-google-tag-manager: It looks like you forgot to configure your Google Tag Manager. For more information please check https://github.com/XD2Sketch/next-google-tag-manager#usage');
   }
 
-  const queryParams = new URLSearchParams({ id: GTM_ID! });
+  const queryParams = new URLSearchParams({ id });
 
-  if (GTM_AUTH) {
-    queryParams.append('gtm_auth', GTM_AUTH);
+  if (auth) {
+    queryParams.append('gtm_auth', auth);
   }
 
-  if (GTM_ENV) {
-    queryParams.append('gtm_preview', `env-${GTM_ENV}`);
+  if (environment) {
+    queryParams.append('gtm_preview', `env-${environment}`);
     queryParams.append('gtm_cookies_win', 'x');
   }
 
   return `${BASE_URL}?${queryParams.toString()}`;
 }
 
-export const getScriptQueryString = () => {
+export const getScriptQueryString = (auth?: string, environment?: string) => {
   const string = '';
 
-  if (GTM_AUTH) string.concat(`&gtm_auth=${GTM_AUTH}`);
-  if (GTM_ENV) string.concat(`&gtm_preview=env-${GTM_ENV}&gtm_cookies_win=x`);
+  if (auth) string.concat(`&gtm_auth=${auth}`);
+  if (environment) string.concat(`&gtm_preview=env-${environment}&gtm_cookies_win=x`);
 
   return string;
 }
