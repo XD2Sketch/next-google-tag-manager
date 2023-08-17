@@ -59,3 +59,4 @@ following props to the component:
 | server      | string | www.googletagmanager.com | The tagging server that is used, you can configure your own server here or use the default Google Tag Manager server by default. This is used for server side tagging. Please only put the domain, subdomain and top level domain here to make it work correctly. |
 | auth        | string | -                        | Authentication string for the container configuration.                                                                                                                                                                                                            |
 | environment | string | -                        | The environment that is used, see [Environments - Tag Manager Help](https://support.google.com/tagmanager/answer/6311518?hl=en) for more information                                                                                                              |
+
