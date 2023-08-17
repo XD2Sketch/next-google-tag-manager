@@ -36,10 +36,10 @@ import GoogleTagManager from '@magicul/next-google-tag-manager';
 
 const RootLayout = ({ children }) => (
   <html lang="en">
-  <body>
-  <GoogleTagManager id="GTM-XXXXX" />
-  {children}
-  </body>
+    <body>
+      <GoogleTagManager id="GTM-XXXXX" />
+      {children}
+    </body>
   </html>
 );
 ```
