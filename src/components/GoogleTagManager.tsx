@@ -7,6 +7,7 @@ import {
   getScriptQueryString,
   GoogleTagManagerArgs,
   pageview,
+  isValidGtmId,
 } from '../utils/gtm';
 import { usePathname, useSearchParams } from 'next/navigation';
 
@@ -22,6 +23,11 @@ const GoogleTagManager: FC<GoogleTagManagerArgs> = ({
   useEffect(() => {
     if (pathname) pageview(pathname);
   }, [pathname, searchParams]);
+  
+  if (!isValidGtmId(id)) {
+    console.warn('next-google-tag-manager: It looks like the ID of your Google Tag Manager container is not valid. For more information please check https://github.com/XD2Sketch/next-google-tag-manager#usage');
+    return null
+  }
 
   return (
     <>

@@ -18,6 +18,11 @@ export type GoogleTagManagerArgs = {
   environment?: string;
 }
 
+export const isValidGtmId = (tagId: string) => {
+  const pattern = /^GTM-[A-Z0-9]+$/i;
+  return pattern.test(tagId);
+}
+
 export const getIFrameURL = ({ id, server, environment, auth }: GoogleTagManagerArgs) => {
   const BASE_URL = `https://${server}/ns.html`;
 
